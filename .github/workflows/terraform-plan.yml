@@ -30,5 +30,4 @@ jobs:
       - name: Terraform Plan
         run: terraform plan
 
-      - name: Query Cluster Id
-        run: terraform output cluster_id
+

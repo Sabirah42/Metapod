@@ -28,3 +28,6 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve
 
+      - name: Query Outputs
+        run: terraform output
+
