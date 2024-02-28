@@ -1,8 +1,9 @@
 name: Terraform Apply
 
 on:
-  push:
+  pull_request:
     branches: [ main ]
+    types: [ closed ]
 
 jobs:
   terraform:
@@ -10,6 +11,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.MYAWSACCESSKEY }}
+          aws-secret-access-key: ${{ secrets.MYAWSSECRETACCESSKEY }}
+          aws-region: eu-west-2
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
@@ -20,4 +28,3 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve
 
-        # 
