@@ -1,3 +1,3 @@
 locals {
-  cluster_name = "yusabsmoli"
+  cluster_name = "yusabsmol-eks-cluster"
 }
