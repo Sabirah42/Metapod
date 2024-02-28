@@ -27,6 +27,9 @@ jobs:
       - name: Change directory
         run: cd tf-files
 
+      - name: Contents of folder
+        run: ls
+
       - name: Terraform Init
         run: terraform init
 
