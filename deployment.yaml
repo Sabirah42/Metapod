@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: yusabsmoli
+        app.kubernetes.io/name: yusabsmoli
     spec:
       containers:
       - name: hello-kubernetes-docker-image
