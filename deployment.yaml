@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yusabsmoli-deployment
+  labels:
+    app: yusabsmoli
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: yusabsmoli
+  template:
+    metadata:
+      labels:
+        app: yusabsmoli
+    spec:
+      containers:
+      - name: hello-kubernetes-docker-image
+        image: paulbouwer/hello-kubernetes:1.10
+        ports:
+        - containerPort: 8080
