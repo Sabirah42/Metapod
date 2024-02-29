@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: yusabsmoli-service
+spec:
+  selector:
+    app.kubernetes.io/name: yusabsmoli
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+  clusterIP: 10.100.0.15
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 192.0.2.127
