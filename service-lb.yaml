@@ -6,7 +6,6 @@ spec:
   selector:
     app.kubernetes.io/name: yusabsmoli
   ports:
-    - name: http
       protocol: TCP
       port: 80
       targetPort: 8080

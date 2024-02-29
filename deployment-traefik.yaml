@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traefik-ingress-controller
+  namespace: kube-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: traefik
+  template:
+    metadata:
+      labels:
+        app: traefik
+    spec:
+      containers:
+      - name: traefik
+        image: traefik:v2.5
+        args:
+        - --api.insecure
+        - --accesslog
+        - --entrypoints.web.Address=:80
+        - --providers.kubernetescrd
+        ports:
+        - name: web
+          containerPort: 80
+        - name: admin
+          containerPort: 8080
